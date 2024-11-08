@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Iniciar Sesión - PlayForge</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>Iniciar Sesión</h1>
+        </div>
+        <form class="login-form" id="formulario_login">
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <div class="divider"><p>o</p></div>
+        <div class="social-login">
+            <button class="gmail-btn" id="google">Iniciar sesión con Gmail</button>
+        </div>
+    </div>
+    
+    <!-- Botón de tema claro/oscuro -->
+    <button id="toggleTheme" aria-label="Alternar modo claro/oscuro" class="theme-toggle">
+        <img src="../img/pagina/moon-icon.png" alt="Modo oscuro" class="theme-icon" id="themeIcon">
+    </button>
+
+    <div class="background-gif gif2"></div>
+    <div class="background-gif gif3"></div>
+    <div class="background-gif gif4"></div>
+    <div class="background-gif gif5"></div>
+
+
+    <script src="login.js" type="module"></script>
+</body>
+</html>
+

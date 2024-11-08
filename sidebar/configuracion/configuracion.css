@@ -1,0 +1,583 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Fondo negro */
+    color: #FFFFFF; /* Texto blanco */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-toggle {
+    background: gray;       /* Fondo transparente */
+    border-radius: 5px;                 /* Sin borde */
+    cursor: pointer;               /* Cambia el cursor al pasar el mouse */
+
+}
+
+.theme-icon {
+    width: 35px;
+    height: 35px; 
+    transition: opacity 0.3s;
+}
+
+/* Modo claro */
+body.light {
+    background-color: white; /* Fondo claro */
+    color: black; /* Texto negro */
+}
+
+/* Modo oscuro */
+body.dark {
+    background-color: #161616; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+}
+
+/* Cambia el icono cuando está en modo oscuro */
+body.dark .theme-icon {
+    content: url('/img/pagina/sun-icon.png');
+    width: 35px;
+    height: 35px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, #FFD700, #FFA500);
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    color: #FFFFFF; /* Texto blanco */
+}
+
+.header-left {
+    display: flex; /* Usar flexbox para alinear elementos */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.header-left img {
+    max-height: 60px; /* Altura máxima del logo */
+    margin: 0; /* Sin margen */
+    padding: 5px; /* Espacio interno opcional */
+}
+
+.header-center input {
+    width: 580px; /* Ajustar ancho según sea necesario */
+    padding: 8px;
+    color: black; /* Color del texto en el input */
+    border-color: #FFA500;
+    border-radius: 5px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo de los botones en la barra de navegación de iniciar sesion, registrarse y cerrar sesión */
+.header-right button {
+    background-color: #FFD700; /* Color dorado */
+    border: none; /* Sin borde */
+    color: black; /* Texto negro en botones */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+    margin-left: 10px; /* Espaciado entre botones */
+}
+
+.header-right button:hover {
+    background-color: #FFA500; /* Color naranja al pasar el mouse */
+    transform: scale(1.05); /* Aumenta el tamaño al pasar el mouse */
+}
+
+.header-right button,
+.header-right img {
+    margin-left: 10px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+  
+/* Menú desplegable del perfil */
+.profile-menu {
+    position: absolute;
+    top: 60px; /* Ajusta según la altura del header */
+    right: 20px; /* Espaciado desde el lado derecho */
+    background-color: #FFA500; /* Color de fondo naranja */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 5px; /* Borde circular de 5px */
+    width: 150px;
+    visibility: hidden; /* Oculto por defecto */
+    opacity: 0; /* Oculto por defecto */
+    transition: visibility 0s, opacity 0.3s linear; /* Transición suave */
+    z-index: 1000;
+}
+
+.profile-menu.active {
+    visibility: visible; /* Muestra el menú cuando tiene la clase 'active' */
+    opacity: 1; /* Muestra el menú */
+}
+
+.profile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-menu ul li {
+    padding: 10px; /* Espaciado interno de los elementos de la lista */
+    text-align: center; /* Centrar el texto */
+}
+
+.profile-menu ul li button {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo de los botones en el menú */
+.profile-menu button {
+    width: 100%; /* Hacer que los botones ocupen todo el ancho */
+    background: none; /* Sin fondo para los botones */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    color: black; /* Color del texto del botón */
+    padding: 10px; /* Espaciado interno del botón */
+}
+
+.profile-menu button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Efecto hover */
+}
+
+/* Barra lateral */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: black;
+    padding-top: 85px;
+    padding-left: 15px;
+    color: white;
+    overflow-y: auto; /* Permitir desplazamiento vertical */
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(0); /* Asegura que esté visible en pantallas grandes */
+}
+
+.sidebar.active {
+    transform: translateX(0); /* Mostrar la barra lateral */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none; /* Sin subrayado */
+    color: white; /* Color dorado */
+}
+
+a:visited {
+    text-decoration: none; /* Sin subrayado */
+    color: #ffffffea; /* Color dorado para enlaces visitados */
+}
+
+a:hover {
+    text-decoration: none; /* Sin subrayado */
+    color: #FFD700; /* Cambiar color al pasar el ratón, si deseas un efecto */
+}
+
+a:active {
+    text-decoration: none; /* Sin subrayado */
+    color: #FFD700; /* Color dorado al hacer clic */
+    background-color: transparent; /* Sin fondo al hacer clic */
+}
+
+/* Main content */
+main {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    padding-top: 20px; /* Espacio entre el header y los botones */
+}
+
+.button-container {
+    display: flex; /* Usa flexbox para alinear los botones */
+    gap: 50px; /* Espacio entre los botones */
+}
+
+.button-container button {
+    background-color: #FFD700; /* Color dorado */
+    border-radius: 5px;
+    color: black; /* Texto negro en botones */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno de los botones */
+    font-size: 16px; /* Tamaño de fuente de los botones */
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.8); /* Efecto neón en texto */
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+.button-container button:hover {
+    background-color: #FFA500; /* Color naranja al pasar el mouse */
+    transform: scale(1.05); /* Aumenta el tamaño al pasar el mouse */
+}
+
+/* Estilos del botón de menú */
+#menuBtn {
+    background: #FFA500;
+    color: black; /* Texto negro */
+    border: none; /* Sin borde */
+    padding: 5px 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Sombra para efecto neón */
+}
+
+/* Efecto hover en el botón de menú */
+#menuBtn:hover {
+    transform: scale(1.05); /* Aumenta el tamaño al pasar el mouse */
+}
+
+/* Post bar */
+
+.post-bar {
+    float: right;
+    display: flex; /* Usar Flexbox para alinear los elementos */
+    flex-direction: column; /* Coloca el textarea en la parte superior */
+    justify-content: center; /* Alinea el contenido a la derecha */
+    align-items: center; /* Centra verticalmente */
+    background-color: rgba(255, 215, 0, 0.1); /* Color de fondo para modo claro */
+    border: 1px solid #FFD700; /* Borde dorado */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    margin: 20px 20px; /* Espacio en la parte superior e inferior y centrado en la página */
+    width: 80%; /* Ancho de la barra */
+    max-width: 7500px; /* Máximo ancho */
+    transition: background-color 0.3s; /* Transición suave para cambios de color */
+}
+    
+#postInput {
+    width: 97%; /* Ocupa todo el ancho de la barra */
+    height: 50px; /* Altura del textarea */
+    padding: 10px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    resize: none; /* Sin opción de redimensionar */
+}
+
+#postButton {
+    border: none; /* Sin borde */
+    color: black; /* Texto negro */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-left: 10px; /* Espacio entre el textarea y el botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+#postButton,
+.upload-btn {
+    background-color: #FFD700; /* Color dorado */
+    border: none; /* Sin borde */
+    color: black; /* Texto negro */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+/* Estilo del botón de subir imagen y agregar enlace */
+.upload-btn {
+    background-color: #FFD700; /* Color dorado */
+    border: none; /* Sin borde */
+    color: black; /* Texto negro */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    margin: 10px 5px; /* Espacio entre botones */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+
+/* Cambios de color para modo oscuro */
+body.dark .post-bar {
+    background-color: rgba(22, 22, 22, 0.8); /* Color de fondo oscuro */
+    border: 1px solid #FFD700; /* Borde dorado */
+}
+
+.upload-btn:hover,
+.post-button:hover {
+    background-color: #FFA500; /* Color naranja al pasar el mouse */
+    transform: scale(1.05); /* Aumenta el tamaño al pasar el mouse */
+} 
+
+#postButton:hover {
+    background-color: #FFA500; /* Color naranja al pasar el mouse */
+}
+
+/* Estilo de configuración */
+/* Estilo específico para la sección de configuración de notificaciones */
+.settings-item {
+    background-color: transparent; /* Fondo transparente */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: 2px solid #FFD700; /* Borde dorado */
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+/* Estilo para los títulos h2 */
+.settings-item h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #000000;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto de hover para h2 */
+.settings-item h2:hover {
+    transform: scale(1.005); /* Efecto de agrandar el texto */
+
+}
+
+/* Estilo para los labels */
+.settings-item label {
+    display: block;
+    font-size: 1rem;
+    margin: 10px 0 5px;
+    color: #000000;
+    font-weight: bold; /* Negrita para los labels */
+    transition: color 0.3s ease;
+}
+
+/* Estilo para los inputs */
+.settings-item input[type="checkbox"] {
+    margin-right: 30px;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Efecto de hover en los inputs */
+.settings-item input[type="checkbox"]:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo para el botón */
+.settings-item button {
+    background-color: #FFD700; /* Fondo dorado para el botón */
+    color: black;
+    border: none;
+    padding: 10px 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Efecto de hover para el botón */
+.settings-item button:hover {
+    background-color: #ffcc00;
+    transform: scale(1.02); /* Efecto de agrandar el botón */
+}
+
+/* Estilo para el modo oscuro */
+body.dark-mode .settings-item {
+    background-color: #1a1a1a; /* Fondo oscuro */
+    border: 2px solid #FFD700; /* Mantener borde dorado en modo oscuro */
+}
+
+/* Título h2 en modo oscuro */
+body.dark-mode .settings-item h2 {
+    color: #FFD700; /* Color dorado para el título */
+    text-shadow: 3px 3px 8px #ffd9007c; /* Sombra fuerte */
+}
+
+/* Label en modo oscuro */
+body.dark-mode .settings-item label {
+    color: #ffffff; /* Labels blancos en modo oscuro */
+}
+
+/* Input en modo oscuro */
+body.dark-mode .settings-item input[type="checkbox"] {
+    background-color: #333;
+    border-radius: 3px;
+}
+
+/* Estilo para el modo claro */
+body.light-mode .settings-item {
+    background-color: #f5f5f5; /* Fondo claro */
+    border: 2px solid #FFD700; /* Mantener borde dorado en modo claro */
+}
+
+/* Título h2 en modo claro */
+body.light-mode .settings-item h2 {
+    color: #000000; /* Color negro para el título en modo claro */
+}
+
+/* Label en modo claro */
+body.light-mode .settings-item label {
+    color: #000000; /* Labels negros en modo claro */
+}
+
+/* Input en modo claro */
+body.light-mode .settings-item input[type="checkbox"] {
+    background-color: #000000;
+    border-radius: 3px;
+}
+
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .header-right .hidden {
+        display: inline-block; /* Mostrar botón de menú solo en pantallas pequeñas */
+    }
+
+    .header-center input {
+        width: 350px; /* Ajustar ancho según sea necesario */
+        padding: 8px;
+        color: black; /* Color del texto en el input */
+        border-color: #FFA500;
+        border-radius: 5px;
+    }
+
+    #menuBtn {
+        display: inline-block; /* Mostrar botón de menú */
+    }
+
+    /* Ocultar botones de login, registro y cerrar sesión en pantallas pequeñas */
+    #loginBtn, #logoutBtn {
+        display: none;
+    }
+
+    #loginBtn, #logoutBtn:hover{
+        color: #FFA500 ;
+     }
+
+    /* Mostrar el menú de perfil en pantallas pequeñas */
+    #profileMenu {
+        display: block; /* El menú debe estar disponible */
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+       
+    }
+
+    /* Mostrar solo el botón de menú y la foto de perfil */
+    .header-right .hidden {
+        display: none; /* Asegúrate de que el botón de menú sea visible */
+    }
+
+    /* Hacer la barra lateral desplazable y mostrarla con el botón en modo responsivo */
+    .sidebar {
+        display: none; /* Oculta la barra lateral por defecto en pantallas pequeñas */
+        position: fixed;
+        width: 200px;
+        height: 100vh;
+        background-color: black; 
+        padding-top: 80px;
+        color: white;
+        overflow-y: auto; /* Permitir desplazamiento vertical */
+        transform: translateX(-100%); /* Oculta la barra lateral fuera de la vista inicialmente */
+        transition: transform 0.3s ease; /* Animación suave para mostrar/ocultar */
+    }
+
+    .sidebar.active {
+        transform: translateX(0); /* Mostrar la barra lateral */
+        display: block; /* Mostrar la barra cuando esté activa */
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    .hidden {
+        display: none; /* Ocultar elementos */
+    }
+
+    .theme-toggle{
+        margin-top: 280px;
+    }
+
+    .button-container {
+        display: flex; /* Usa flexbox para alinear los botones */
+        gap: 50px; /* Espacio entre los botones */
+    }
+
+    /* Barra de publicacion */
+    .post-bar {
+        width: 70%; /* Ancho de la barra en pantallas grandes */
+        max-width: 800px; /* Ajustar el ancho máximo para pantallas móviles */        
+        padding: 15px; /* Aumentar el espaciado interno */
+        margin-right: 80px;
+    }
+
+    .post-input {
+        height: 60px; /* Aumentar la altura del textarea en pantallas grandes */
+    }
+
+    .post-button {
+        padding: 12px 20px; /* Aumentar el espaciado interno del botón */
+    }
+
+    .profile-menu {
+        max-height: 300px; /* Altura máxima del menú */
+        overflow-y: auto; /* Permite desplazamiento si hay mucho contenido */
+    }
+
+    .profile-pic{
+        margin-right: 25px;
+    }
+}
+
+
+/* Estilos para pantallas grandes (mayores de 768px) */
+@media (min-width: 769px) {
+    .sidebar {
+        display: block; /* Mostrar la barra lateral siempre en pantallas grandes */
+    }
+
+    #menuBtn {
+        display: none; /* Ocultar botón de menú en pantalla completa */
+    }
+
+    main {
+        margin-left: 200px; /* Espacio para la barra lateral */
+    }
+
+    .theme-toggle {
+        margin-top: 0; /* Reinicia el margen superior */
+    }
+
+    /* Asegurarte de que el menú de perfil esté oculto en pantallas grandes */
+    #profileMenu {
+        display: none; /* Ocultar menú de perfil en pantallas grandes */
+    }
+}

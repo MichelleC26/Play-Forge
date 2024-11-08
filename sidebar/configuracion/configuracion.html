@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayForge</title>
+    <link rel="stylesheet" href="configuracion.css">
+    <script type="module" src="configuracion.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="/index.html"><img src="/img/pagina/nombre-pagina.png" ></a>
+        </div>
+        <div class="header-center">
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <div class="header-right">
+            <button id="loginBtn">Iniciar sesión</button>
+            <button id="logoutBtn">Cerrar sesión</button> 
+            <img src="/img/perfil/foto-perfil.jpg" class="profile-pic" id="profilePic">
+            <button id="menuBtn" class="hidden">☰</button> <!-- Botón para la barra lateral en modo responsivo -->
+        </div>
+    </header>
+
+    <!-- Menú desplegable de perfil en modo responsivo -->
+    <div id="profileMenu" class="profile-menu hidden">
+        <ul>
+            <li><a href="/login/login.html"><button id="loginOption">Iniciar sesión</button></a></li> <!-- Enlace a Iniciar sesión -->
+            <li><button id="logoutOption">Cerrar sesión</button></li>
+        </ul>
+        
+    </div>
+     
+    <!-- Barra lateral -->
+    <aside id="sidebar" class="sidebar">
+        <ul>
+            <a href="/index.html"><li>Inicio</li></a>
+            <a href="../perfil/perfil.html"><li>Perfil</li></a>
+            <a href="../configuracion/configuracion.html"><li>Configuración</li></a>
+            <button id="toggleTheme" aria-label="Alternar modo claro/oscuro" class="theme-toggle">
+                <img src="/img/pagina/sun-icon.png" alt="Modo claro" class="theme-icon" id="themeIcon">
+            </button>
+        </ul>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main id="settings-content">
+        
+        <!-- Sección de configuración -->
+        <section class="settings-item">
+            <h2>Configuración de cuenta</h2>
+            <form id="account-settings-form">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+
+                <label for="username">Nombre de usuario:</label>
+                <input type="text" id="username" name="username" placeholder="Tu nombre de usuario" required>
+
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" placeholder="Nueva contraseña">
+
+                <button type="submit">Guardar cambios</button>
+            </form>
+        </section>
+
+        <section class="settings-item">
+            <h2>Preferencias de privacidad</h2>
+            <label for="privacy">Estado de privacidad:</label>
+            <select id="privacy" name="privacy">
+                <option value="publico">Público</option>
+                <option value="privado">Privado</option>
+            </select>
+            <button>Guardar preferencias</button>
+        </section>
+
+        <section class="settings-item">
+            <h2>Configuración de notificaciones</h2>
+            <form id="notifications-settings-form">
+                <label for="email-notifications">Notificaciones por correo electrónico:</label>
+                <input type="checkbox" id="email-notifications" name="email-notifications">
+
+                <label for="push-notifications">Notificaciones push:</label>
+                <input type="checkbox" id="push-notifications" name="push-notifications">
+
+                <button type="submit">Guardar configuraciones de notificaciones</button>
+            </form>
+        </section>
+    </main>
+</body>

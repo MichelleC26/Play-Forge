@@ -1,0 +1,571 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Fondo negro */
+    color: #FFFFFF; /* Texto blanco */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-toggle {
+    background: gray;       /* Fondo transparente */
+    border-radius: 5px;                 /* Sin borde */
+    cursor: pointer;               /* Cambia el cursor al pasar el mouse */
+
+}
+
+.theme-icon {
+    width: 35px;
+    height: 35px; 
+    transition: opacity 0.3s;
+}
+
+/* Modo claro */
+body.light {
+    background-color: white; /* Fondo claro */
+    color: black; /* Texto negro */
+}
+
+/* Modo oscuro */
+body.dark {
+    background-color: #161616; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+}
+
+/* Cambia el icono cuando está en modo oscuro */
+body.dark .theme-icon {
+    content: url('/img/pagina/sun-icon.png');
+    width: 35px;
+    height: 35px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, #FFD700, #FFA500);
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    color: #FFFFFF; /* Texto blanco */
+}
+
+.header-left {
+    display: flex; /* Usar flexbox para alinear elementos */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.header-left img {
+    max-height: 60px; /* Altura máxima del logo */
+    margin: 0; /* Sin margen */
+    padding: 5px; /* Espacio interno opcional */
+}
+
+.header-center input {
+    width: 580px; /* Ajustar ancho según sea necesario */
+    padding: 8px;
+    color: black; /* Color del texto en el input */
+    border-color: #FFA500;
+    border-radius: 5px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo de los botones en la barra de navegación de iniciar sesion, registrarse y cerrar sesión */
+.header-right button {
+    background-color: #FFD700; /* Color dorado */
+    border: none; /* Sin borde */
+    color: black; /* Texto negro en botones */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+    margin-left: 10px; /* Espaciado entre botones */
+}
+
+.header-right button:hover {
+    background-color: #FFA500; /* Color naranja al pasar el mouse */
+    transform: scale(1.05); /* Aumenta el tamaño al pasar el mouse */
+}
+
+.header-right button,
+.header-right img {
+    margin-left: 10px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+  
+/* Menú desplegable del perfil */
+.profile-menu {
+    position: absolute;
+    top: 60px; /* Ajusta según la altura del header */
+    right: 20px; /* Espaciado desde el lado derecho */
+    background-color: #FFA500; /* Color de fondo naranja */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 5px; /* Borde circular de 5px */
+    width: 150px;
+    visibility: hidden; /* Oculto por defecto */
+    opacity: 0; /* Oculto por defecto */
+    transition: visibility 0s, opacity 0.3s linear; /* Transición suave */
+    z-index: 1000;
+}
+
+.profile-menu.active {
+    visibility: visible; /* Muestra el menú cuando tiene la clase 'active' */
+    opacity: 1; /* Muestra el menú */
+}
+
+.profile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-menu ul li {
+    padding: 10px; /* Espaciado interno de los elementos de la lista */
+    text-align: center; /* Centrar el texto */
+}
+
+.profile-menu ul li button {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo de los botones en el menú */
+.profile-menu button {
+    width: 100%; /* Hacer que los botones ocupen todo el ancho */
+    background: none; /* Sin fondo para los botones */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    color: black; /* Color del texto del botón */
+    padding: 10px; /* Espaciado interno del botón */
+}
+
+.profile-menu button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Efecto hover */
+}
+
+/* Barra lateral */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: black;
+    padding-top: 85px;
+    padding-left: 15px;
+    color: white;
+    overflow-y: auto; /* Permitir desplazamiento vertical */
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(0); /* Asegura que esté visible en pantallas grandes */
+}
+
+.sidebar.active {
+    transform: translateX(0); /* Mostrar la barra lateral */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none; /* Sin subrayado */
+    color: white; /* Color dorado */
+}
+
+a:visited {
+    text-decoration: none; /* Sin subrayado */
+    color: #ffffffea; /* Color dorado para enlaces visitados */
+}
+
+a:hover {
+    text-decoration: none; /* Sin subrayado */
+    color: #FFD700; /* Cambiar color al pasar el ratón, si deseas un efecto */
+}
+
+a:active {
+    text-decoration: none; /* Sin subrayado */
+    color: #FFD700; /* Color dorado al hacer clic */
+    background-color: transparent; /* Sin fondo al hacer clic */
+}
+
+/* Estilo perfil */
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    max-width: 850px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+/* Banner */
+.banner {
+    width: 125%;
+    height: 215px;
+    background-color: transparent;
+    border: 5px solid #FFD700;
+    border-radius: 10px;
+    transition: border-color 0.3s;
+    position: relative;
+    margin-top: -35px;
+    margin-left: 220px;
+}
+
+/* Información del perfil */
+.profile-info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: center;
+    position: relative;
+    margin-left: 200px;
+}
+
+/* Circulo de foto de perfil */
+.profile-pic-container {
+    width: 200px;
+    height: 200px;
+    border: 5px solid #FFD700;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: border-color 0.3s;
+    position: absolute;
+}
+
+.profile-pic-large {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#username-input,
+#description-input {
+    width: 100%; /* O un ancho fijo como 250px */
+    box-sizing: border-box;
+}
+
+.profile-description{
+    padding: 10px;
+    margin-top: 35px;
+}
+
+.profile-description h2 {
+    margin-left: 200px;
+    font-size: 35px;
+    color: #FFD700;
+    padding: 35px;
+}
+
+.profile-description p {
+    font-size: 20px;
+    color: #000000;
+}
+
+.profile{
+    margin-left: auto; /* Esto empuja el contenido hacia la derecha */
+    margin-top: 10px;
+    margin-right: -200px;
+}
+
+.edit-profile {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #FFD700;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.edit-profile:hover {
+    background-color: #FFA500;
+}
+
+/* Navegación del perfil */
+.profile-nav {
+    display: flex;
+    gap: 280px;
+    margin-top: 35px;
+    margin-right: -200px;
+}
+
+.profile-nav button {
+    background-color: #ebd17d;
+    border: none;
+    color: #000;
+    padding: 13px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 17px;
+}
+
+.profile-nav button:hover {
+    background-color: #FFA500;
+}
+
+/* Modal de edición de perfil */
+.hidden {
+    display: none;
+}
+
+.edit-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none; /* Desactiva la interacción cuando el modal está oculto */
+}
+
+.edit-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.edit-modal-content {
+    background-color: #333;
+    padding: 20px;
+    width: 90%; /* Ancho del modal en móviles */
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    color: #FFF;
+}
+
+.edit-modal input[type="file"],
+.edit-modal input[type="text"],
+.edit-modal textarea,
+.edit-modal input[type="color"] {
+    width: 100%;
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+.edit-modal input[type="color"] {
+    height: 40px;
+}
+
+#clearData{
+    background-color: #FFD700;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+#clearData:hover {
+    background-color: #FFA500;
+}
+
+#saveChanges {
+    background-color: #FFD700;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+#saveChanges:hover {
+    background-color: #FFA500;
+}
+
+
+.edit-modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.close {
+    position: absolute;
+    top: 10px; /* Ajustado para acercarlo más */
+    right: 405px; /* Ajustado para acercarlo más */
+    background: none;
+    border: none;
+    color: #FFD700;
+    font-size: 40px; /* Aumentar tamaño */
+    cursor: pointer;
+    z-index: 2000; /* Asegurar que el botón esté por encima de otros elementos */
+}
+
+/* style.css */
+.like-button {
+    background-color: #000;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.like-button.liked {
+    background-color: #FFD700; /* Dorado cuando el like está activo */
+}
+
+.like-count {
+    margin-left: 10px;
+}
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    /* Otros ajustes */
+    .header-right .hidden {
+        display: inline-block;
+    }
+
+    /* Ajustar el tamaño del input de búsqueda */
+    .header-center input {
+        width: 135%;
+        max-width: 350px;
+        padding: 8px;
+        color: black;
+        border-color: #FFA500;
+        border-radius: 5px;
+    }
+
+    /* Menú desplegable en modo responsivo */
+    #menuBtn {
+        display: inline-block;
+    }
+
+    #loginBtn,  #logoutBtn {
+        display: none;
+    }
+
+    /* Barra lateral */
+    .sidebar {
+        display: none;
+        position: fixed;
+        width: 200px;
+        height: 100vh;
+        background-color: black;
+        padding-top: 80px;
+        color: white;
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 999; 
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+        display: block;
+    }
+
+    #loginBtn, #logoutBtn {
+        display: none;
+    }
+
+    .theme-toggle{
+        margin-top: 270px;
+    }
+
+    .profile-container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* Banner */
+    .banner {
+        width: 100%;
+        height: 180px;
+        margin-top: 20px;
+        margin-left: -5px;
+    }
+
+    .profile-container {
+        width: 600px; /* Ancho máximo */
+        overflow: hidden; /* Para evitar desbordamientos */
+        padding: 10px;
+    }
+
+    /* Foto de perfil */
+    .profile-pic-container {
+        width: 170px;
+        height: 170px;
+        margin-left: -200px;
+    }
+
+    .profile-description{
+        margin: -55px;
+    }
+
+    /* Nombre del Usuario */
+    .profile-description h2 {
+        font-size: 24px;
+        padding: 30px;
+        margin-right: 200px;
+        margin-top: 110px;
+        font-size: 33px;
+    }
+
+    /* Descripción del Usuario */
+    .profile-description p {
+        margin-left: 80px;
+        font-size: 16px;
+    }
+
+    /* Botón Editar Perfil */
+    .edit-profile {
+        margin-top: 55px;
+        margin-left: -310px;
+    }
+
+    /* Navegación del perfil */
+    .profile-nav {
+        margin-top: 15px;
+        margin-left: -170px;
+        gap: 120px;
+        font-size: 15px;
+    }
+
+    .profile-nav button {
+        margin: 5px 0;
+        padding: 10px 13px;
+    }
+
+    .close{
+        display:none ;
+    }
+}

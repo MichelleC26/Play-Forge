@@ -1,0 +1,213 @@
+/* Estilos generales */
+body {
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000; /* Texto negro */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: #ffffff; /* Fondo blanco */
+    border: 3px solid #FFD700;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+h1 {
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
+    color: #000000; /* Color por defecto en modo claro */
+}
+
+p {
+    text-align: center;
+    color: #000000; /* Color negro por defecto */
+}
+
+/* Asegurarnos de que el texto del párrafo sea visible en modo oscuro */
+body.dark p {
+    color: #030000; /* Color blanco en modo oscuro */
+}
+
+/* Logo */
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos del formulario */
+.login-form input {
+    width: 94%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Botón de iniciar sesión */
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #FFD700;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Botones de Facebook y Gmail */
+.social-login button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.facebook-btn {
+    background-color: #4267b2;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.gmail-btn {
+    background-color: #db4437;
+    color: white;
+}
+
+/* Divisor */
+.divider {
+    text-align: center;
+    margin: 10px 0;
+}
+
+
+/* Botón para alternar el tema */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px;
+    background-color: gray;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.theme-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #121212; /* Fondo oscuro */
+    color: #ffffff; /* Texto claro */
+}
+
+.container.dark-mode {
+    background-color: #1e1e1e;
+}
+
+.login-form input.dark-mode {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+.login-form button.dark-mode {
+    background-color: #FFD700;
+}
+
+/* Cambiar icono en modo oscuro */
+#themeIcon.dark-mode {
+    content: url("../img/pagina/sun-icon.png"); /* Icono del sol */
+}
+
+/* Estilos base para los GIF de fondo */
+.background-gif {
+    position: absolute;
+    bottom: 10%; /* Ubica los GIF cerca de la parte inferior de la pantalla */
+    transform: translateY(0); /* Quita el desplazamiento vertical ya que estamos usando bottom */
+    width: 250px;  /* Ajusta el ancho según el tamaño deseado */
+    height: 200px; /* Ajusta la altura según el tamaño deseado */
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.8; /* Ajusta la opacidad si deseas menos o más intensidad */
+    z-index: -1; /* Envía los GIF detrás del contenido */
+}
+
+/* Personalización de cada GIF y ubicación de izquierda a derecha */
+
+
+.gif2 {
+    background-image: url('../img/gif/fondo-login.gif');
+    left: 5%;
+    width: 150px;  /* Ajusta el ancho según el tamaño deseado */
+    height: 150px; /* Aumenta para colocar a la derecha del GIF anterior */
+}
+
+.gif3 {
+    background-image: url('../img/gif/sonic.gif');
+    left: 20%;
+    width: 150px;  /* Ajusta el ancho según el tamaño deseado */
+    height: 150px; /* Sigue desplazando hacia la derecha */
+}
+
+.gif4 {
+    background-image: url('../img/gif/pikachu.gif');
+    left: 60%; /* Ajusta para centrar un poco más los GIF */
+}
+
+.gif5 {
+    background-image: url('../img/gif/haduken.gif');
+    left: 85%; /* Ajuste de la posición final */
+    width: 150px;  /* Ajusta el ancho según el tamaño deseado */
+    height: 150px;
+}
+
+/* Estilos del cuadro de login */
+.login-container {
+    position: relative;
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+/* Diseño responsivo: reorganización en pantallas pequeñas */
+@media (max-width: 768px) {
+    .gif1, .gif2 {
+        top: 5%; /* Coloca en la parte superior */
+        width: 80px; /* Reduce el tamaño */
+        height: 80px;
+    }
+
+    .gif3, .gif4, .gif5 {
+        bottom: 5%; /* Coloca en la parte inferior */
+        width: 99px; /* Reduce el tamaño */
+        height: 80px;
+        margin: 20px;
+    }
+
+    /* Ajusta la posición horizontal para adaptarse mejor a pantallas pequeñas */
+    .gif2 { left: 45%; }
+    .gif3 { left: 10%; }
+    .gif4 { left: 40%; }
+    .gif5 { left: 80%; }
+}

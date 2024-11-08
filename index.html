@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayForge</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <img src="img/pagina/nombre-pagina.png" >
+        </div>
+        <div class="header-center">
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <div class="header-right">
+            <button id="loginBtn">Iniciar sesión</button>
+            <button id="logoutBtn">Cerrar sesión</button> 
+            <img src="img/perfil/foto-perfil.jpg" class="profile-pic" id="profilePic">
+            <button id="menuBtn" class="hidden">☰</button> <!-- Botón para la barra lateral en modo responsivo -->
+        </div>
+    </header>
+
+    <!-- Menú desplegable de perfil en modo responsivo -->
+    <div id="profileMenu" class="profile-menu hidden">
+        <ul>
+            <li><a href="./login/login.html"><button id="loginOption">Iniciar sesión</button></a></li> <!-- Enlace a Iniciar sesión -->
+            <li><button id="logoutOption" class="authOption" style="display:none;">Cerrar sesión</button></li>
+        </ul>
+    </div>
+     
+    <!-- Barra lateral -->
+    <aside id="sidebar" class="sidebar"> 
+        <ul>
+            <a href="index.html"><li>Inicio</li></a>
+            <a href="./sidebar/perfil/perfil.html"><li>Perfil</li></a>
+            <a href="./sidebar/configuracion/configuracion.html"><li>Configuración</li></a>
+            <button id="toggleTheme" aria-label="Alternar modo claro/oscuro" class="theme-toggle">
+                <img src="./img/pagina/sun-icon.png" alt="Modo claro" class="theme-icon" id="themeIcon">
+            </button>
+        </ul>
+    </aside> 
+
+    <!-- Tabla de publicación -->
+    <div class="post-bar">
+        <textarea id="postInput" placeholder="¿Qué estás pensando?"></textarea>
+        <input type="file" id="imageInput" style="display: none;">
+        <div class="post-buttons">
+            <label for="foto_publicacion" class="upload-btn">🖼️ Subir Imagen</label>
+            <input type="file" id="foto_publicacion" style="display: none;" accept="image/*">
+            <button id="linkButton" class="upload-btn">🔗 Agregar Enlace</button>
+            <button id="postButton">Publicar</button>
+        </div>
+    </div>
+
+    <!-- Publicaiones  -->
+
+    <div id="feed">
+        <div class="publicacion">
+            <div class="publicacion-header">
+                <img src="./img/perfil/foto-perfil.jpg" alt="Perfil" class="perfil-img">
+                <span class="nombre-usuario">@nombreUsuario</span>
+            </div>
+            <div class="publicacion-contenido">
+                <p>Texto de la publicación aquí...</p>
+                <img src="./img/pagina/publicacion.png" alt="Imagen de publicación" class="contenido-img">
+            </div>    
+            <!-- Barra de comentarios -->
+            <div class="comentario">
+                <div class="comentario-usuario">
+                    <span class="comentario-nombre">@otroUsuario</span>
+                    <img src="./img/perfil/foto-perfil.jpg" alt="Foto de usuario" class="comentario-img">
+                    
+                </div>
+                <p></p>
+    </div>
+        
+        </div>
+            
+        <!-- Repite el bloque .publicacion para otras publicaciones -->
+    </div>
+
+</body>
+</html>
